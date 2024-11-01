@@ -1,0 +1,245 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ESPACIO
+
+Grammar
+
+Rule 0     S' -> curp
+Rule 1     curp -> nombre apellido_paterno apellido_materno dia mes anio sexo entidad
+Rule 2     nombre -> NOMBRE VALOR
+Rule 3     apellido_paterno -> APELLIDO_PATERNO VALOR
+Rule 4     apellido_materno -> APELLIDO_MATERNO VALOR
+Rule 5     dia -> DIA VALOR
+Rule 6     mes -> MES VALOR
+Rule 7     anio -> ANIO VALOR
+Rule 8     sexo -> SEXO VALOR
+Rule 9     entidad -> ENTIDAD VALOR
+
+Terminals, with rules where they appear
+
+ANIO                 : 7
+APELLIDO_MATERNO     : 4
+APELLIDO_PATERNO     : 3
+DIA                  : 5
+ENTIDAD              : 9
+ESPACIO              : 
+MES                  : 6
+NOMBRE               : 2
+SEXO                 : 8
+VALOR                : 2 3 4 5 6 7 8 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+anio                 : 1
+apellido_materno     : 1
+apellido_paterno     : 1
+curp                 : 0
+dia                  : 1
+entidad              : 1
+mes                  : 1
+nombre               : 1
+sexo                 : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . curp
+    (1) curp -> . nombre apellido_paterno apellido_materno dia mes anio sexo entidad
+    (2) nombre -> . NOMBRE VALOR
+
+    NOMBRE          shift and go to state 3
+
+    curp                           shift and go to state 1
+    nombre                         shift and go to state 2
+
+state 1
+
+    (0) S' -> curp .
+
+
+
+state 2
+
+    (1) curp -> nombre . apellido_paterno apellido_materno dia mes anio sexo entidad
+    (3) apellido_paterno -> . APELLIDO_PATERNO VALOR
+
+    APELLIDO_PATERNO shift and go to state 5
+
+    apellido_paterno               shift and go to state 4
+
+state 3
+
+    (2) nombre -> NOMBRE . VALOR
+
+    VALOR           shift and go to state 6
+
+
+state 4
+
+    (1) curp -> nombre apellido_paterno . apellido_materno dia mes anio sexo entidad
+    (4) apellido_materno -> . APELLIDO_MATERNO VALOR
+
+    APELLIDO_MATERNO shift and go to state 8
+
+    apellido_materno               shift and go to state 7
+
+state 5
+
+    (3) apellido_paterno -> APELLIDO_PATERNO . VALOR
+
+    VALOR           shift and go to state 9
+
+
+state 6
+
+    (2) nombre -> NOMBRE VALOR .
+
+    APELLIDO_PATERNO reduce using rule 2 (nombre -> NOMBRE VALOR .)
+
+
+state 7
+
+    (1) curp -> nombre apellido_paterno apellido_materno . dia mes anio sexo entidad
+    (5) dia -> . DIA VALOR
+
+    DIA             shift and go to state 11
+
+    dia                            shift and go to state 10
+
+state 8
+
+    (4) apellido_materno -> APELLIDO_MATERNO . VALOR
+
+    VALOR           shift and go to state 12
+
+
+state 9
+
+    (3) apellido_paterno -> APELLIDO_PATERNO VALOR .
+
+    APELLIDO_MATERNO reduce using rule 3 (apellido_paterno -> APELLIDO_PATERNO VALOR .)
+
+
+state 10
+
+    (1) curp -> nombre apellido_paterno apellido_materno dia . mes anio sexo entidad
+    (6) mes -> . MES VALOR
+
+    MES             shift and go to state 14
+
+    mes                            shift and go to state 13
+
+state 11
+
+    (5) dia -> DIA . VALOR
+
+    VALOR           shift and go to state 15
+
+
+state 12
+
+    (4) apellido_materno -> APELLIDO_MATERNO VALOR .
+
+    DIA             reduce using rule 4 (apellido_materno -> APELLIDO_MATERNO VALOR .)
+
+
+state 13
+
+    (1) curp -> nombre apellido_paterno apellido_materno dia mes . anio sexo entidad
+    (7) anio -> . ANIO VALOR
+
+    ANIO            shift and go to state 17
+
+    anio                           shift and go to state 16
+
+state 14
+
+    (6) mes -> MES . VALOR
+
+    VALOR           shift and go to state 18
+
+
+state 15
+
+    (5) dia -> DIA VALOR .
+
+    MES             reduce using rule 5 (dia -> DIA VALOR .)
+
+
+state 16
+
+    (1) curp -> nombre apellido_paterno apellido_materno dia mes anio . sexo entidad
+    (8) sexo -> . SEXO VALOR
+
+    SEXO            shift and go to state 20
+
+    sexo                           shift and go to state 19
+
+state 17
+
+    (7) anio -> ANIO . VALOR
+
+    VALOR           shift and go to state 21
+
+
+state 18
+
+    (6) mes -> MES VALOR .
+
+    ANIO            reduce using rule 6 (mes -> MES VALOR .)
+
+
+state 19
+
+    (1) curp -> nombre apellido_paterno apellido_materno dia mes anio sexo . entidad
+    (9) entidad -> . ENTIDAD VALOR
+
+    ENTIDAD         shift and go to state 23
+
+    entidad                        shift and go to state 22
+
+state 20
+
+    (8) sexo -> SEXO . VALOR
+
+    VALOR           shift and go to state 24
+
+
+state 21
+
+    (7) anio -> ANIO VALOR .
+
+    SEXO            reduce using rule 7 (anio -> ANIO VALOR .)
+
+
+state 22
+
+    (1) curp -> nombre apellido_paterno apellido_materno dia mes anio sexo entidad .
+
+    $end            reduce using rule 1 (curp -> nombre apellido_paterno apellido_materno dia mes anio sexo entidad .)
+
+
+state 23
+
+    (9) entidad -> ENTIDAD . VALOR
+
+    VALOR           shift and go to state 25
+
+
+state 24
+
+    (8) sexo -> SEXO VALOR .
+
+    ENTIDAD         reduce using rule 8 (sexo -> SEXO VALOR .)
+
+
+state 25
+
+    (9) entidad -> ENTIDAD VALOR .
+
+    $end            reduce using rule 9 (entidad -> ENTIDAD VALOR .)
+
