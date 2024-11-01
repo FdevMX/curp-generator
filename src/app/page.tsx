@@ -1,4 +1,4 @@
-import { CurpGenerator } from "@/components/curp-generator"
+import { CurpGenerator } from "@/src/components/curp-generator"
 
 export default function Page() {
   return <CurpGenerator />
