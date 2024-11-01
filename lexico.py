@@ -49,7 +49,7 @@ def t_ENTIDAD(t):
     return t
 
 def t_VALOR(t):
-    r'[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9]+'
+    r'[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]+'
     return t
 
 # Ignorar espacios y tabulaciones
